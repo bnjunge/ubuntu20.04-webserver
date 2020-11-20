@@ -1,6 +1,9 @@
 ### Quickly Provision an Ubuntu 20.04 LTS Webserver
 
-##### How to run the script
+#### What you will install
+PHP, PHPMYADMIN, MARIADB, ZIP, UNZIP, WGET 
+
+#### How to run the script
 First, make it executable shell script
 
 ```sh
