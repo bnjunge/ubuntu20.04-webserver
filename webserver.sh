@@ -69,10 +69,13 @@ then
 
     	# adding grant privileges to mysql root user from everywhere
     	MYSQL='mysql'
-        q1="GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$pswd' WITH GRANT OPTION;FLUSH PRIVILEGES;UPDATE mysql.user SET plugin='' WHERE user='root';FLUSH PRIVILEGES"
+        Q1="GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$pswd' WITH GRANT OPTION;"
+        Q2="FLUSH PRIVILEGES;"
+        Q3="UPDATE mysql.user SET plugin='' WHERE user='root';"
+        Q4="FLUSH PRIVILEGES;"
+        SQL="${Q1}${Q2}${Q3}${Q4}"
 
-    	$MYSQL -uroot -p$pswd -e "$q1"
-
+    	$MYSQL -uroot -p$pswd -e "$SQL"
 		# Restart MySQL
     	sudo service mysql restart
     fi
